@@ -1,24 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import { 
+  provideFASTDesignSystem, 
+  fastCard, 
+  fastButton
+} from '@microsoft/fast-components';
+import { provideReactWrapper } from '@microsoft/fast-react-wrapper';
+import React from 'react';
+
+const { wrap } = provideReactWrapper(
+  React, 
+  provideFASTDesignSystem()
+);
+
+export const FastCard = wrap(fastCard());
+export const FastButton = wrap(fastButton())
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FastCard>
+        <h2>TRE-UI React FAST</h2>
+        <FastButton appearance="accent" onClick={() => console.log("clicked")}>Click Me</FastButton>
+    </FastCard>
   );
 }
 
