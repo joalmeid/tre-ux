@@ -2,6 +2,9 @@
   "name": "fast-app",
   "version": "0.1.0",
   "private": true,
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  },
   "dependencies": {
     "@microsoft/fast-components": "^2.30.2",
     "@microsoft/fast-element": "^1.10.0",
@@ -16,16 +19,19 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "EXTEND_ESLINT=true react-scripts start",
-    "build": "EXTEND_ESLINT=true react-scripts build",
-    "test": "EXTEND_ESLINT=true react-scripts test",
+    "start": "cross-env EXTEND_ESLINT=true react-scripts start",
+    "build": "cross-env EXTEND_ESLINT=true react-scripts build",
+    "test": "cross-env EXTEND_ESLINT=true react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "no-unused-expressions": "off"
+    }
   },
   "browserslist": {
     "production": [
